@@ -21,7 +21,7 @@ libraryDependencies ++= Seq(
   "org.jacoco"  %  "org.jacoco.report" % jacocoVersion artifacts jacocoReport,
   "org.specs2"  %% "specs2"            % "2.4.16"  % Test,
   "org.mockito" %  "mockito-all"       % "1.10.19" % Test,
-  "org.pegdown" %  "pegdown"           % "1.2.1"   % Test
+  "org.pegdown" %  "pegdown"           % "1.5.0"   % Test
 )
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-language:_")
