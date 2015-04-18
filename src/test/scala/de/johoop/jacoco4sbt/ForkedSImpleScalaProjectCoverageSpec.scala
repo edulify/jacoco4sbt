@@ -6,7 +6,7 @@ import scala.sys.process.Process
 import java.io.File
 import org.specs2.matcher.FileMatchers
 
-class ForkedSimpleScalaProjectCoverageSpec extends Specification with FileMatchers { def is = s2"""
+class ForkedSimpleScalaProjectCoverageSpec extends Specification with FileMatchers { def is = s"""
   $sequential
   ${"JaCoCo in a simple, but forked Scala project".title}
 

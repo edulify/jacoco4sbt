@@ -16,12 +16,17 @@ val jacocoReport = Artifact("org.jacoco.report", "jar", "jar")
 
 val jacocoVersion = "0.7.4.201502262128"
 
+val specs2Version = "3.4"
+
 libraryDependencies ++= Seq(
-  "org.jacoco"  %  "org.jacoco.core"   % jacocoVersion artifacts jacocoCore,
-  "org.jacoco"  %  "org.jacoco.report" % jacocoVersion artifacts jacocoReport,
-  "org.specs2"  %% "specs2"            % "2.4.16"  % Test,
-  "org.mockito" %  "mockito-all"       % "1.10.19" % Test,
-  "org.pegdown" %  "pegdown"           % "1.5.0"   % Test
+  "org.jacoco"  %  "org.jacoco.core"      % jacocoVersion artifacts jacocoCore,
+  "org.jacoco"  %  "org.jacoco.report"    % jacocoVersion artifacts jacocoReport,
+  "org.specs2"  %% "specs2-core"          % specs2Version % Test,
+  "org.specs2"  %% "specs2-junit"         % specs2Version % Test,
+  "org.specs2"  %% "specs2-mock"          % specs2Version % Test,
+  "org.specs2"  %% "specs2-matcher-extra" % specs2Version % Test,
+  "org.mockito" %  "mockito-all"          % "1.10.19" % Test,
+  "org.pegdown" %  "pegdown"              % "1.5.0"   % Test
 )
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-language:_")

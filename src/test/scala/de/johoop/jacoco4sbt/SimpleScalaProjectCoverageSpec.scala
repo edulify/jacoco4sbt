@@ -1,20 +1,28 @@
 package de.johoop.jacoco4sbt
 
-import org.specs2._
+import org.specs2.mutable.Specification
 import de.johoop.jacoco4sbt.build.BuildInfo
 import scala.sys.process.Process
 import java.io.File
 import org.specs2.matcher.FileMatchers
 
-class SimpleScalaProjectCoverageSpec extends Specification with FileMatchers { def is = s2"""
-  $sequential
-  ${"JaCoCo in a simple Scala project".title}
+class SimpleScalaProjectCoverageSpec extends Specification with FileMatchers {
 
-  Covering tests in a simple Scala project should
-    return an exit code != 0 when required coverage is not met,    $e1
-    create a jacoco target directory,                                        $e2
-    create a classes directory.                                              $e3
-"""
+  sequential
+
+  title("JaCoCo in a simple Scala project")
+
+  "Covering tests in a simple Scala project" should {
+    "return an exit code != 0 when required coverage is not met" in {
+      exitCode !== 0
+    }
+    "create a jacoco target directory" in {
+      jacocoDir should exist and beADirectory
+    }
+    "create a classes directory" in {
+      coveredClassesDir should exist and beADirectory
+    }
+  }
 
   lazy val testProjectBase = new File(BuildInfo.test_resourceDirectory, "jacocoTest")
   lazy val targetDir = new File(testProjectBase, "target")
@@ -22,8 +30,4 @@ class SimpleScalaProjectCoverageSpec extends Specification with FileMatchers { d
   lazy val coveredClassesDir = new File(jacocoDir, "classes")
 
   lazy val exitCode = Process(s"${Util.processName} clean jacoco:cover", Some(testProjectBase)) !
-
-  def e1 = exitCode should not be equalTo(0)
-  def e2 = jacocoDir should exist and beADirectory
-  def e3 = coveredClassesDir should exist and beADirectory
 }

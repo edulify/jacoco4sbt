@@ -7,10 +7,10 @@ import java.io.File
 import org.specs2.matcher.{Matcher, FileMatchers}
 import scala.xml.{NodeSeq, XML}
 
-class PlayJavaMultiProjectCoverageSpec extends Specification with FileMatchers { def is = s2"""
-  $sequential
-  ${"JaCoCo in a Play Java multi-project".title}
-
+class PlayJavaMultiProjectCoverageSpec extends Specification with FileMatchers {
+  sequential
+  title("JaCoCo in a Play Java multi-project")
+  def is = s2"""
   Covering tests in a Play Scala project with subprojects should
     return an exit code of zero,                                  $e1
     create a jacoco target directory in each subproject,          $e2

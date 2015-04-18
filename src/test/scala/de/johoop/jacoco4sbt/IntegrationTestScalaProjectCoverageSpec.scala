@@ -6,16 +6,16 @@ import scala.sys.process.Process
 import java.io.File
 import org.specs2.matcher.FileMatchers
 
-class IntegrationTestScalaProjectCoverageSpec extends Specification with FileMatchers { def is = s2"""
-  $sequential
-  ${"JaCoCo in n integration test Scala project".title}
-
+class IntegrationTestScalaProjectCoverageSpec extends Specification with FileMatchers {
+  sequential
+  title("JaCoCo in n integration test Scala project")
+  def is = s2"""
   Covering tests in a simple Scala project should
-    return an exit code == 0 when required coverage is met,                  $e1
-    create a jacoco target directory,                                        $e2
-    create a classes directory.                                              $e3
-    create an it-jacoco target directory,                                    $e4
-    create a it classes directory.                                           $e5
+    return an exit code == 0 when required coverage is met,    $e1
+    create a jacoco target directory,                          $e2
+    create a classes directory.                                $e3
+    create an it-jacoco target directory,                      $e4
+    create a it classes directory.                             $e5
 """
 
   lazy val testProjectBase = new File(BuildInfo.test_resourceDirectory, "jacocoIntegrationTest")
