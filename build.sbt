@@ -4,7 +4,7 @@ name := "jacoco4sbt"
 
 organization := "de.johoop"
 
-version := "2.1.7.Edulify"
+version := "2.1.8.Edulify"
 
 resolvers += "Sonatype Release" at "https://oss.sonatype.org/content/repositories/releases"
 
