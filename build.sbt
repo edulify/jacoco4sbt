@@ -8,7 +8,9 @@ version := "2.1.8.Edulify"
 
 resolvers += "Sonatype Release" at "https://oss.sonatype.org/content/repositories/releases"
 
-scalaVersion := "2.10.4"
+resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
+
+scalaVersion := "2.10.5"
 
 val jacocoCore = Artifact("org.jacoco.core", "jar", "jar")
 
