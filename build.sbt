@@ -23,6 +23,8 @@ val specs2Version = "3.4"
 libraryDependencies ++= Seq(
   "org.jacoco"  %  "org.jacoco.core"      % jacocoVersion artifacts jacocoCore,
   "org.jacoco"  %  "org.jacoco.report"    % jacocoVersion artifacts jacocoReport,
+  "org.ow2.asm" %  "asm"                  % "5.0.3",
+  "org.ow2.asm" %  "asm-debug-all"        % "5.0.3",
   "org.specs2"  %% "specs2-core"          % specs2Version % Test,
   "org.specs2"  %% "specs2-junit"         % specs2Version % Test,
   "org.specs2"  %% "specs2-mock"          % specs2Version % Test,
